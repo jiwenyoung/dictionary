@@ -146,17 +146,12 @@ const main = async () => {
         if(results.newslist.length > 0){
           let newslist = results.newslist
           for(let entry of newslist){
-            console.log(`${chalk.green.bold('拼音:')} ${entry.py}`)
-            console.log(`${chalk.green.bold('笔画:')} ${entry.bihua}`)
+            console.log(`${chalk.green.bold('拼音:')} ${chalk.bold(entry.py)}`)
+            console.log(`${chalk.green.bold('笔画:')} ${chalk.bold(entry.bihua)}`)
             let content = entry.content.split('<br>')
-            if(content.length >= 3){
-              content = content.slice(3)
-              console.log(chalk.green.bold(`解释:`))
-              let index = 1;
-              for(let item of content){
-                console.log(`${chalk.green.bold(index)}.` + item)
-                index++
-              }
+            console.log(chalk.green.bold(`解释:`))
+            for(let item of content){
+              console.log(chalk.bold(item))
             }
           }
         }
